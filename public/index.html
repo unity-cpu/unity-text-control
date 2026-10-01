@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unity Text Control</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#f7f2ff,#eee8ff 45%,#fff);display:grid;place-items:center;color:#211a2e}
+    .card{width:min(92vw,620px);padding:32px;border:1px solid #ddd2f5;border-radius:24px;background:rgba(255,255,255,.9);box-shadow:0 24px 70px rgba(76,48,130,.15)}
+    h1{margin:0 0 8px;font-size:32px}.sub{margin:0 0 26px;color:#746b82}
+    textarea{width:100%;min-height:150px;resize:vertical;padding:16px;border:1px solid #d8cfee;border-radius:16px;outline:none;font-size:18px}
+    textarea:focus{border-color:#805ad5;box-shadow:0 0 0 4px #805ad522}
+    input{width:100%;margin-top:12px;padding:14px;border:1px solid #d8cfee;border-radius:12px;font-size:16px}
+    button{width:100%;margin-top:16px;padding:15px;border:0;border-radius:14px;background:#7048c8;color:#fff;font-size:17px;font-weight:700;cursor:pointer}
+    button:hover{background:#5f38b2}.status{margin-top:16px;padding:12px;border-radius:12px;background:#f4effc;color:#5f526e;min-height:44px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Unity Text Control</h1>
+    <p class="sub">Type text here and send it to your Unity game.</p>
+    <textarea id="text" placeholder="Type something for Unity..."></textarea>
+    <input id="key" type="password" placeholder="Control key">
+    <button id="send">Update Unity Text</button>
+    <div class="status" id="status">Ready.</div>
+  </main>
+<script>
+const text=document.getElementById("text");
+const key=document.getElementById("key");
+const status=document.getElementById("status");
+document.getElementById("send").onclick=async()=>{
+  status.textContent="Updating...";
+  try{
+    const r=await fetch("/api/set-text",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({text:text.value,key:key.value})
+    });
+    const data=await r.json();
+    if(!r.ok) throw new Error(data.error||"Request failed");
+    status.textContent="Updated successfully.";
+  }catch(e){status.textContent=e.message}
+};
+</script>
+</body>
+</html>
