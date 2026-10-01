@@ -1,6 +1,9 @@
 {
-  "name": "unity-text-control",
-  "version": "2.0.0",
+  "name": "gorilla-code-redeem-api",
+  "version": "1.0.0",
   "private": true,
-  "description": "Vercel + Supabase control panel for changing Unity TextMeshPro text"
+  "description": "Vercel API for Unity cosmetic code redemption",
+  "engines": {
+    "node": "22.x"
+  }
 }
