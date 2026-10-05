@@ -94,6 +94,7 @@ const SINGLE_ITEMS = {
   "fortnite_bundle": "FORTNITEBUNDLE.", "roblox_bundle": "ROBLOX.",
   "booster_pack": "BoosterPack.", "donator_bundle": "DonatorBundle",
   "everything_no_admin": "EVERYTHINGBUTNOADMINBADGE",
+  "everything_no_staff": "EVERYTHINGBUTNOSTAFFSTUFF.",
 };
 
 // ── NAMED_BUNDLES ── reusable groups
