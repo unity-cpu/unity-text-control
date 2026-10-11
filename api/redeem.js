@@ -1245,12 +1245,12 @@ export default async function handler(req, res) {
     }
 
     const n = grant.granted.length;
-    const defaultMsg = `Unlocked ${n} cosmetic${n === 1 ? "" : "s"}! Restart Gorilla Tag to see them.`;
+    const defaultMsg = `Unlocked ${n} cosmetic${n === 1 ? "" : "s"}! Restart Milk Tag to see them.`;
 
     return res.status(200).json({
       success: true,
       message: entry.message
-        ? `${entry.message} Restart Gorilla Tag to see your items.`
+        ? `${entry.message} Restart Milk Tag to see your items.`
         : defaultMsg,
       cosmetics: grant.granted,
       ...(grant.failed.length > 0 && {
