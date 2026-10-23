@@ -44,6 +44,7 @@ const SINGLE_ITEMS = {
   "forestguide": "FORESTGUIDE.",
   "donator": "DONATOR.",
   "donatortext": "DONATORTEXT.",
+  "EVERY COSMETIC": "EVERY COSMETIC",
 
   // ── Face ──
   "big_eyebrows": "LFAAA.",
